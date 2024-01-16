@@ -8,4 +8,6 @@ Use musicgen -h to see options
 
 ### Credits:
 Coded by xavenna
+The releases contain drum samples sourced from a free sound effects library on the
+website MusicRadar.com. The melody sounds were created by me.
 This program utilizes the SFML library for audio playback.

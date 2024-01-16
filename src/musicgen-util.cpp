@@ -10,9 +10,6 @@
 #include "miscutil.h"
 #include "musicgen-util.h"
 void generateSection(ChainList& cl, Section& sec, const int& mesToGenerate, int preMeasures, const int& mesLength) {
-  //this doesn't work
-  //make sure hist is set up right
-  //also, maybe just rewrite from scratch
   auto lGetNextNode = [](MarkovChain* n){
     n->selectNextNode();
   };
@@ -26,14 +23,11 @@ void generateSection(ChainList& cl, Section& sec, const int& mesToGenerate, int 
     if(preMeasures == 0) {
       sec.contents.push_back(Pattern(8));
       std::for_each(cl.contents.begin(),cl.contents.end(),lMergeCurrentNode);
-      //sec.contents.back().printContents();
     }
     else {
       i--;
       preMeasures--;
     }
-    //std::cout << cl.contents[0]->current << '\n';
-    //cl.contents[0]->contents[cl.contents[0]->current].pattern.printContents();
   }
 }
 

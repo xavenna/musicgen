@@ -182,30 +182,30 @@ int main(int argc, char** argv) {
   //initialize markov chains
   MarkovChain bassDrum;
   //bassDrumInitialize(bassDrum);
-  bassDrum.initialize("assets/bass.mkc", BassDrum);
+  bassDrum.initialize("assets/config/bass.mkc", BassDrum);
   MarkovChain snareDrum;
   //snareDrumInitialize(snareDrum);
-  snareDrum.initialize("assets/snare.mkc", SnareDrum);
+  snareDrum.initialize("assets/config/snare.mkc", SnareDrum);
   MarkovChain hiHat;
   //hiHatInitialize(hiHat);
-  hiHat.initialize("assets/hihat.mkc", HiHatDrum);
+  hiHat.initialize("assets/config/hihat.mkc", HiHatDrum);
   MarkovChain crashCymbal;
   //crashCymbalInitialize(crashCymbal);
-  crashCymbal.initialize("assets/crash.mkc", CrashCymbal);
+  crashCymbal.initialize("assets/config/crash.mkc", CrashCymbal);
   MarkovChain rideCymbal;
   //rideCymbalInitialize(rideCymbal);
-  rideCymbal.initialize("assets/ride.mkc", RideCymbal);
+  rideCymbal.initialize("assets/config/ride.mkc", RideCymbal);
   MarkovChain openHiHat;
   //openHiHatInitialize(openHiHat);
-  openHiHat.initialize("assets/ohihat.mkc", OpenHiHat);
+  openHiHat.initialize("assets/config/ohihat.mkc", OpenHiHat);
   MarkovChain melodyRhythm;
   //melodyRhythmInitialize(melodyRhythm);
-  melodyRhythm.initialize("assets/mrhythm.mkc", MelodyRhythm);
+  melodyRhythm.initialize("assets/config/mrhythm.mkc", MelodyRhythm);
   ChainList listOfInstruments;
   listOfInstruments.append(&bassDrum).append(&snareDrum).append(&hiHat).append(&crashCymbal).append(&rideCymbal).append(&openHiHat).append(&melodyRhythm);
   MelodicMarkovChain melodyChain;
   //melodyInitialize(melodyChain);
-  melodyChain.initialize("assets/melody.mkc");
+  melodyChain.initialize("assets/config/melody.mkc");
   if(debugMode)
     std::cout << "Markov chain initialization complete\n";
   /*
@@ -340,7 +340,7 @@ int main(int argc, char** argv) {
     //transform it into a melodic line
     
     //steps: choose key
-    ///for now, just use a minor
+    ///for now, just use A minor
 
     //maybe use more markov chains for generating melody?!!
     generateMelody(melodyChain, rhythm, melody);
@@ -394,10 +394,12 @@ int main(int argc, char** argv) {
     }
   }
 }
-
+/* I'll leave this here just in case, but it still compiles when it's commented
 void markovGenerateInstrument(Section& sect, MarkovChain& mc, int measuresToGenerate, Instrument inst) {
   for(int i=0;i<measuresToGenerate;i++) {
     mc.selectNextNode();
     sect.contents[i].merge(mc.contents[mc.current].pattern, inst, 8);
   }
 }
+
+*/
